@@ -1,8 +1,7 @@
 # A Passion Project 
 by Jianming Tu
 
-# Passion Project
-[GitHub Assignment Link](https://classroom.github.com/a/iu7cOFBC)
+
 ## Overview
 The goal of the Passion Project module is to provide each student with an opportunity to individually explore and expand their abilities within a hands-on project-based setting.
 
