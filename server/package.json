@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "npm i -y\r     npm install -g nodemon  (nodemon server.js)\r     npm i pstree.remy@1.1.0 -D\r npm i express morgan body-parser\r npm i mongodb\r npm i mongoose\r npm i passport passport-local passport-local-mongoose express-session",
+  "main": "server.js",
+  "scripts": {
+    "local": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node" : ">=14.16.0"
+  },
+  "devDependencies": {
+    "pstree.remy": "^1.1.0"
+  }
+}
