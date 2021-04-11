@@ -1,50 +1,4 @@
-# Server
-
-
-## Install
-npm init
-    npm install -g nodemon  (nodemon server.js)
-    npm i pstree.remy@1.1.0 -D
-npm i express morgan body-parser dotenv
-npm i mongodb
-npm i mongoose
-npm i passport passport-local passport-local-mongoose express-session
-
-boilerplate
-server.js
----------------------------
-const express = require('express')
-require('dotenv').config()
-const jwt = require('./jwt')
-
-const app = express()
-app.use(express.static"public")
-app.use(express.json())
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-
-
-const { MongoClient, ObjectId} = require('mongodb')
-const bcrypt = require('bcryptjs')
-
-const url = 'mongodb://localhost:27017'
-const dbName = 'socialSomething'
-const client = new MongoClient(url, {useUnifiedTopology: true, useNewUrlParser: true})
-
-  await client.connect()
-
-  const db = client.db(dbName)
-  const posts = db.collection('posts')
-  const users = db.collection('users')
-  const comments = db.collection('comments')
-
-
-
-https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/
--- 5 ways of http requests and I choose the most popular axios
-
+# server
 
 ## Overview
 The goal of the Passion Project module is to provide each student with an opportunity to individually explore and expand their abilities within a hands-on project-based setting.
@@ -95,9 +49,32 @@ The passion project accounts for 20% of your SSDP5001 mark.
 * Industry Project (66.67%)
 
 
-## App Layer
-client - React (Netlify)
-
+## Server Layer
 server - Express (Heroku)
-
 database -MongoDB
+- Install
+  npm init
+    npm install -g nodemon 
+    npm i pstree.remy@1.1.0 -D
+  npm i express morgan body-parser dotenv mongodb bcryptjs jsonwebtoken
+- create server.js, etc.
+- deploy
+  heroku login
+  heroku create
+  git remote -v ( check heroku git and my git)
+  add PORT, ACCESS_TOKEN_SECRET to .env 
+  create the Procfile file and add "web: node server.js"
+  add the snippet to package.json
+  ```dotnetcli
+    "engines": {
+    "node" : ">=14.16.0"
+  },
+  ```
+  add "start": "node server.js" to package.json
+  git subtree push --prefix server heroku master
+  git branch --show-current
+  git push origin 1ServerSetup
+
+
+https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/
+-- 5 ways of http requests and I choose the most popular axios
