@@ -7,6 +7,8 @@ import Sidebar from "./components/sidebar/Sidebar";
 
 import LoginPage from "./layouts/LoginPage";
 import SignOutPage from "./layouts/SignOutPage"
+import NewPostPage from "./layouts/NewPostPage"
+
 import * as token from './token'
 
 const App = () => {
@@ -29,7 +31,7 @@ const App = () => {
     setsidebarOpen(false);
   };
   return (
-    <div className="container">
+    <div className="app_container">
       <Router>
         <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} user={user}  />
         <Switch>
@@ -38,7 +40,10 @@ const App = () => {
             </Route>  
             <Route path="/signout">
               <SignOutPage setUser={setUser} />
-            </Route>                  
+            </Route>  
+            <Route path="/newPost">
+            <NewPostPage></NewPostPage>
+            </Route>                            
             <Route path="/">
               <Main user={user}></Main>
             </Route>          
