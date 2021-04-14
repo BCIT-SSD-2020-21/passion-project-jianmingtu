@@ -17,7 +17,7 @@ const authHeader = () => { return { Authorization: `Bearer ${localStorage.getIte
 export async function getPosts() {
   try {
     // Send the JWT in the header of the axios requests from the client
-    const result = await axios.get(`/api/posts`, { headers: authHeader() })
+    const result = await axios.get(`${BASE_API}/posts`, { headers: authHeader() })
     console.log(result)
     return result.data
   } catch (error) {
@@ -47,7 +47,7 @@ export async function savePost(data) {
   
     console.log({ ...data, upload_image_file:ret?.location})
 
-    await axios.post(`/api/posts`, { ...data, upload_image_file:ret?.location },  { headers: authHeader() })
+    await axios.post(`${BASE_API}/posts`, { ...data, upload_image_file:ret?.location },  { headers: authHeader() })
   } catch (err) {
     throw (err.message || JSON.stringify(err))
   }  
@@ -74,7 +74,7 @@ export async function getPost({postId}) {
 
 export async function login({username, password}) {
   try {
-    const result = await axios.post('/api/users/login', {username, password})
+    const result = await axios.post(`${BASE_API}/users/login`,{username, password})
     const token = result.data.accessToken
     saveToken(token)
     return getDecodedToken()
