@@ -9,7 +9,7 @@ import { upload } from './s3'
 // export async function getPost({postId}) 
 // export async function savePost({type, imageUrl, description})
 
-const BASE_API = "https://hidden-taiga-26833.herokuapp.com/api"
+const BASE_API = "https://fathomless-lake-61399.herokuapp.com/api"
 
 // Create an object to send it as a bearer token
 const authHeader = () => { return { Authorization: `Bearer ${localStorage.getItem('token')}` }}
@@ -47,7 +47,7 @@ export async function savePost(data) {
   
     console.log({ ...data, upload_image_file:ret?.location})
 
-    await axios.post(`${BASE_API}/posts`, { ...data, upload_image_file:ret?.location },  { headers: authHeader() })
+    await axios.post(`/api/posts`, { ...data, upload_image_file:ret?.location },  { headers: authHeader() })
   } catch (err) {
     throw (err.message || JSON.stringify(err))
   }  

@@ -1,10 +1,11 @@
 const mongoDatabase = require('./mongoDatabase')
 const express = require('express')
+const cors = require("cors");
 require('dotenv').config()
 
 const app = express()
+app.use(cors());
 app.use(express.json())
-
 
 const makePostsRouter = require('./routers/postsRouter')
 const {makeUsersRouter} = require('./routers/usersRouter')
