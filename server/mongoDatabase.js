@@ -41,8 +41,6 @@ module.exports = async function() {
 
 
   async function createUser({email, username, password}) {
-
-    throw Error("username or email already taken")
     
      const encrypted = await bcrypt.hash(password, 12)
      const user = await db.collection('users').findOne({ $or: [{ username }, { email }] })
