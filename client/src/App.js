@@ -5,11 +5,11 @@ import Main from "./components/main/Main";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 
-import Posts from "./components/posts/Post"
 
 import LoginPage from "./layouts/LoginPage";
 import SignOutPage from "./layouts/SignOutPage"
 import NewPostPage from "./layouts/NewPostPage"
+import Posts from "./layouts/PostsPage"
 
 
 import * as token from './token'
