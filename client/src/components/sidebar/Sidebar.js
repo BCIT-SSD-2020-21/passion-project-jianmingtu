@@ -29,7 +29,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
         <h2>MNG</h2>
         <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
-          <Link to="#">Search Paws</Link>
+          <Link to="/posts" exact>Search Paws</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-handshake-o"></i>

@@ -5,9 +5,12 @@ import Main from "./components/main/Main";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 
+import Posts from "./components/posts/Post"
+
 import LoginPage from "./layouts/LoginPage";
 import SignOutPage from "./layouts/SignOutPage"
 import NewPostPage from "./layouts/NewPostPage"
+
 
 import * as token from './token'
 
@@ -43,7 +46,10 @@ const App = () => {
             </Route>  
             <Route path="/newPost">
             <NewPostPage></NewPostPage>
-            </Route>                            
+            </Route>  
+            <Route path="/posts">
+            <Posts></Posts>
+            </Route>                                       
             <Route path="/">
               <Main user={user}></Main>
             </Route>          
