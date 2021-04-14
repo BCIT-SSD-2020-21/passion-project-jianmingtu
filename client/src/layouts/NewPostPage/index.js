@@ -7,14 +7,19 @@ export default function NewPostPage() {
     const history = useHistory()
     const [error, setError] = useState() 
 
-    const submit = async ({type, imageUrl, description}) => {
-        await network.savePost({type, imageUrl, description});
+    const submitPost = async (data) => {
+        console.log(data)
+        try {
+            await network.savePost(data);
+        } catch (error) {
+        setError(error)
+        }        
     }
 
     return (
-        <NewPost 
-            submit = {submit} 
+        <NewPost  
             close={() => history.push("/")} 
+            submitPost = {submitPost}
             error = {error} >
         </NewPost>
     )

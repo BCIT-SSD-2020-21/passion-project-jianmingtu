@@ -6,6 +6,8 @@ import { IconButton } from '@material-ui/core'
 import Post  from './Post'
 import './NewPost.css'
 import { BsFillPersonFill } from 'react-icons/bs';
+import {IOSSwitch} from '../utils/ToggleSwitch'
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import {
   Card,
@@ -27,24 +29,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewPost({ submit, close }) {
+export default function NewPost({ submit, close, submitPost }) {
   const classes = useStyles();
   const [tabValue, setTabValue] = useState(0);
   const [profileImg, setProfileImag] = useState('images/pet_dog_brown_missing.png')
+  const [lost, setLost]=useState(true)
+   const [file, setFile]=useState('')
+  const [petName, setPetName]=useState('')
+	const [lostPlace, setLostPlace] = useState('')
+	const [gender, setGender] = useState('')
+	const [species, setSpecies] = useState('')  
   
 
   const imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () =>{
-      if(reader.readyState === 2){
-        setProfileImag(reader.result)
-      }
-    }
-    reader.readAsDataURL(e.target.files[0])
+    // const reader = new FileReader();
+    // reader.onload = () =>{
+    //   if(reader.readyState === 2){
+    //     setProfileImag(reader.result)
+    //   }
+    // }
+    // reader.readAsDataURL(e.target.files[0])
+
+    const file = e.target.files[0]
+	setFile(file)
+    const reader = new FileReader()
+    reader.onload = e => setProfileImag(e.target.result)
+    reader.readAsDataURL(file)	
   };
 
   const handleSubmit = e => {
-	  
+	      e.preventDefault()
+
+		  console.log("lost-------------------",lost)
+		  console.log("upload_image_file-------------------",file)	  
+	  	  console.log("pet_name-------------------",petName)
+	  	console.log("address_last_seen-------------------",lostPlace)
+	  	  console.log("gender-------------------",gender)
+	  		console.log("species-------------------",species)
+
+			  //TODO
+			  console.log("date_last_seen-------------------",species)		
+
+			  submitPost({lost:lost, 
+				upload_image_file: file, 
+				pet_name:petName, 
+				address_last_seen:lostPlace, 
+				gender, species})		 		  
   }
 
 	return (
@@ -52,9 +82,9 @@ export default function NewPost({ submit, close }) {
 			<form  onSubmit={handleSubmit}>		
 				<div className="imageContainer">
 					<div className="titlebar">
-						<img src="images/nails_left.svg" class="pull-left" />
+						<img src="images/nails_left.svg" className="pull-left" />
 						<h3 className="heading">Missing</h3>
-						<img src="images/nails_right.svg" class="pull-left" />
+						<img src="images/nails_right.svg" className="pull-left" />
 					</div>			
 					<div className="poster-photo-placeholder fido-light-blue-bg">
 						<div className="img-holder">
@@ -72,28 +102,31 @@ export default function NewPost({ submit, close }) {
 
 				<div className="lostFind">
 					<span>Lost</span>
-					<label className="switch">
-						<input type="checkbox" checked />
-						<span className="slider round"></span>
-					</label>
+					<FormControlLabel
+						control={<IOSSwitch checked={lost} onChange={(e)=>{
+							
+							setLost(e.target.checked)}}
+							
+							 />}
+					/>
 					<span>Found</span>			
 				</div>
 
 				<div className="InfoContainer">
 					<div>
-						<label className="control-label" for="dashboardpet-pet_name">Pet Name</label>
-						<input type="text" id="dashboardpet-pet_name" className="form-control" name="pet_name" placeholder="e.g. Fido" aria-required="true"></input>		
+						<label className="control-label" >Pet Name</label>
+						<input type="text" id="dashboardpet-pet_name" className="form-control" name="pet_name" placeholder="e.g. Fido" aria-required="true" value={petName} onChange={(e)=>setPetName(e.target.value)} ></input>		
 					</div>
 
 					<div>
-						<label className="control-label" for="dashboardpet-pet_name">Pet Name</label>
-						<input type="text" id="dashboardpet-pet_name" className="form-control" name="pet_name" placeholder="e.g. Fido" aria-required="true"></input>		
+						<label className="control-label" >Nearest Address Last Seene</label>
+						<input type="text" id="dashboardpet-pet_name" className="form-control" name="lost_place" placeholder="e.g. V8N 4M9" aria-required="true" value={lostPlace} onChange={(e)=>setLostPlace(e.target.value)}></input>		
 					</div>				
 
 
 					<div>
-						<label className="control-label" for="cropperform-species">SPECIES</label>
-						<select id="cropperform-species" className="form-control" name="species" aria-required="true">
+						<label className="control-label" >SPECIES</label>
+						<select id="cropperform-species" className="form-control" name="species" aria-required="true"  onChange={(e)=>setSpecies(e.target.value)}>
 						<option value="">Choose Species...</option>
 						<option value="Dog">Dog</option>
 						<option value="Cat">Cat</option>
@@ -107,8 +140,8 @@ export default function NewPost({ submit, close }) {
 					</div>
 
 					<div>
-						<label className="control-label" for="cropperform-gender">SEX</label>
-						<select id="cropperform-gender" className="form-control" name="CropperForm[gender]" aria-required="true">
+						<label className="control-label" >SEX</label>
+						<select id="cropperform-gender" className="form-control" name="CropperForm[gender]" aria-required="true" onChange={(e)=>setGender(e.target.value)}>
 						<option value="">Choose Sex...</option>
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
