@@ -24,8 +24,7 @@ module.exports = async function() {
 
   async function createPost({ postDetails, user }) {
   const result = await db.collection('posts').insertOne({
-    imageUrl: postDetails.imageUrl,
-    description: postDetails.description,
+    ...postDetails,
     totalLikes: 0,
     totalComments: 0,
     timestamp: Date.now(),
