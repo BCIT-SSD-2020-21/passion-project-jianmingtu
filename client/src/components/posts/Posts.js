@@ -13,7 +13,7 @@ const Posts = ({posts, cardClicked}) => {
             (
               <div className="col-lg-3 col-md-6 col-sm-12 mb-4">
                 <div className="card card-small card-post card-post--1">
-                  <div className="card-post__image" style={{backgroundImage: 'images/content-management/1.jpeg'}}>
+                  <div className="card-post__image" style={{backgroundImage: `url(${post.upload_image_file})`}}>
                     <a href="#" className="card-post__category badge badge-pill badge-dark">Business</a>
                     <div className="card-post__author d-flex">
                       <a href="#" className="card-post__author-avatar card-post__author-avatar--small" >Written by Anna Kunis</a>
