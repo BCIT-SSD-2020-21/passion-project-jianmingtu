@@ -10,7 +10,7 @@ module.exports = function({database, authorize}) {
   router.get('/', authorize, async (req, res) => {
     const posts = await database.getPosts()
     res.send({
-      posts
+      {message:"how are you"}
     })
   })
   
