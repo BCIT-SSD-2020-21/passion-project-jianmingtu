@@ -70,6 +70,12 @@ database -MongoDB
     "node" : ">=14.16.0"
   },
   ```
+  enable cors
+  ```dotnetcli
+  npm i cors
+  const cors = require("cors");
+  app.use(cors());
+  ```
   add "start": "node server.js" to package.json
   git add .
   git commit -m "change xxx"
