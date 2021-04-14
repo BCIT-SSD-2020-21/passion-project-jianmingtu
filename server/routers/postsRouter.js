@@ -7,7 +7,7 @@ module.exports = function({database, authorize}) {
   const router = express.Router()
 
   // GET /api/posts
-  router.get('/', authorize, async (req, res) => {
+  router.get('/', async (req, res) => {
     const posts = await database.getPosts()
     res.send({
       posts

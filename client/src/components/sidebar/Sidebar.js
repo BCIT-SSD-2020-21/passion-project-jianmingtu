@@ -35,6 +35,17 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
           <i className="fa fa-handshake-o"></i>
           <Link to="#">Contracts</Link>
         </div>
+
+        {!!user && <h2>Add Your Paws</h2> }
+        {!!user && 
+            
+            <div className="sidebar__link">
+              <i className="fa fa-plus-circle"></i>
+              <Link to="/newPost">Create</Link>
+            </div>
+
+        }
+
         <h2>Manage</h2>
         <div className="sidebar__link">
           <i className="fa fa-user-circle"></i>

@@ -1,7 +1,9 @@
 const { MongoClient, ObjectId} = require('mongodb')
 const bcrypt = require('bcryptjs')
 
-const url = process.env.MONGODB_URL
+// const url = process.env.MONGODB_URL
+
+const url = 'mongodb+srv://team8:team8@cluster0.kgzz2.mongodb.net/petsFound'
 const dbName = 'petsFound'
 const client = new MongoClient(url, {useUnifiedTopology: true, useNewUrlParser: true})
 
@@ -24,8 +26,7 @@ module.exports = async function() {
 
   async function createPost({ postDetails, user }) {
   const result = await db.collection('posts').insertOne({
-    imageUrl: postDetails.imageUrl,
-    description: postDetails.description,
+    ...postDetails,
     totalLikes: 0,
     totalComments: 0,
     timestamp: Date.now(),
@@ -40,6 +41,7 @@ module.exports = async function() {
 
 
   async function createUser({email, username, password}) {
+    
      const encrypted = await bcrypt.hash(password, 12)
      const user = await db.collection('users').findOne({ $or: [{ username }, { email }] })
     if (user) {
