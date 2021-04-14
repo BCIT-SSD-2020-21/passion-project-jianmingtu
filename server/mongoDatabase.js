@@ -1,7 +1,9 @@
 const { MongoClient, ObjectId} = require('mongodb')
 const bcrypt = require('bcryptjs')
 
-const url = process.env.MONGODB_URL
+// const url = process.env.MONGODB_URL
+
+const url = 'mongodb+srv://team8:team8@cluster0.kgzz2.mongodb.net/petsFound'
 const dbName = 'petsFound'
 const client = new MongoClient(url, {useUnifiedTopology: true, useNewUrlParser: true})
 
