@@ -18,35 +18,39 @@ module.exports = async function() {
 
   async function getPosts(req) {
 
-    try 
-    {
+    // try 
+    // {
 
-         return req;
-         
-      const { limit = 100, skip = 0} = req 
-      const search =  req.query?.search;
-      const aggregateOptions = []
+    //   const { limit = 100, skip = 0} = req 
+    //   const search =  req.query?.search;
+    //   const aggregateOptions = []
 
   
       
-      if (search) {
-        aggregateOptions.push({
-          $match: { 
-            $expr: {
-              $or: [ 
-                { $regexMatch: {input: '$pet_name', regex: new RegExp(`${search}`), options: "i" }},
-                { $regexMatch: {input: '$address_last_seen', regex: new RegExp(`${search}`), options: "i" }},
-                { $regexMatch: {input: '$user.username', regex: new RegExp(`${search}`), options: "i" }}
-              ]
-            } 
-          }
-        })
-      }
+    //   if (search) {
+    //     aggregateOptions.push({
+    //       $match: { 
+    //         $expr: {
+    //           $or: [ 
+    //             { $regexMatch: {input: '$pet_name', regex: new RegExp(`${search}`), options: "i" }},
+    //             { $regexMatch: {input: '$address_last_seen', regex: new RegExp(`${search}`), options: "i" }},
+    //             { $regexMatch: {input: '$user.username', regex: new RegExp(`${search}`), options: "i" }}
+    //           ]
+    //         } 
+    //       }
+    //     })
+    //   }
   
-      return await db.collection('posts').aggregate(aggregateOptions).sort({ timestamp: -1, likes: 1}).skip(skip).limit(limit || 20).toArray()
-    } catch(error) {
-      return error
-    }
+    //   return await db.collection('posts').aggregate(aggregateOptions).sort({ timestamp: -1, likes: 1}).skip(skip).limit(limit || 20).toArray()
+    // } catch(error) {
+    //   return error
+    // }
+
+        return await db.collection('posts')
+    .find({})
+    .limit(20)
+    .sort({ "timestamp": -1 })
+    .toArray()
   }
 
   async function createPost({ postDetails, user }) {
