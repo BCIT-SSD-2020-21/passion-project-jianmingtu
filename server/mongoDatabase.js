@@ -20,11 +20,14 @@ module.exports = async function() {
 
     try 
     {
+
+         return req;
+         
       const { limit = 100, skip = 0} = req 
       const search =  req.query?.search;
       const aggregateOptions = []
 
-      return req;
+  
       
       if (search) {
         aggregateOptions.push({
