@@ -5,7 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core'
 import Post  from './Post'
 import './NewPost.css'
-import { BsFillPersonFill } from 'react-icons/bs';
+import { BsForward, BsCameraVideo } from 'react-icons/bs';
 import {IOSSwitch} from '../utils/ToggleSwitch'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
@@ -93,7 +93,7 @@ export default function NewPost({ submit, close, submitPost }) {
 						<input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler} />
 						<div className="label">
 							<label className="image-upload" htmlFor="input">
-								<BsFillPersonFill size={30} />
+								<BsCameraVideo style={{marginRight: '0.5rem'}} size={30} />
 								<span>Add Photo</span>
 							</label>
 						</div>
@@ -151,7 +151,7 @@ export default function NewPost({ submit, close, submitPost }) {
 				</div>	
 			
 				<button className="submitButton">
-					<BsFillPersonFill size={30} />
+					<BsForward style={{marginRight: '0.5rem'}} size={30} />
 					<span>Add Photo</span>
 				</button>
 			</form>	

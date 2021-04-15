@@ -9,7 +9,6 @@ const Navbar = ({ sidebarOpen, openSidebar, user }) => {
       </div>
       <div className="navbar__left">
         <a href="#">Subscribers</a>
-        <a href="#">Video Management</a>
         <a className="active_link" href="#">
           Admin
         </a>
