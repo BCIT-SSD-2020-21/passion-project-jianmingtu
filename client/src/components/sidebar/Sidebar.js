@@ -29,11 +29,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
         <h2>MNG</h2>
         <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
-          <Link to="#">Search Paws</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-handshake-o"></i>
-          <Link to="#">Contracts</Link>
+          <Link to="/posts" exact>Search Paws</Link>
         </div>
 
         {!!user && <h2>Add Your Paws</h2> }
@@ -51,6 +47,12 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
           <i className="fa fa-user-circle"></i>
           <Link to="#">Profile</Link>
         </div>
+
+        <div className="sidebar__link">
+          <i className="fa fa-handshake-o"></i>
+          <Link to="#">Contact US</Link>
+        </div>
+                
         {!!user ?
           <div className="sidebar__logout">
             <i className="fa fa-sign-out"></i>
@@ -62,6 +64,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
             <Link to="/login">Login</Link>
           </div>       
         }
+        
       </div>
     </div>
  
