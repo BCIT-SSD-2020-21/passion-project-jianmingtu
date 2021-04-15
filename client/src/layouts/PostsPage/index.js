@@ -29,16 +29,12 @@ export default function PostsPage() {
   }
 
   return (
-    <div>
-    {
-      !posts ?
-      <p>Loading ...</p>
-      :
+
+
         <Posts 
         posts={posts} 
         cardClicked={cardClicked}
         ></Posts>
-    }
-    </div>
+ 
   )
 }

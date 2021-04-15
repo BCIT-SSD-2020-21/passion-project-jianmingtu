@@ -1,7 +1,6 @@
 main {
   grid-area: main;
   overflow-y: auto;
-  background-color: red;
 }
 
 
