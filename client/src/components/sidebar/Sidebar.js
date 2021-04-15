@@ -1,10 +1,19 @@
 import "./Sidebar.css";
 import logo from "../../assets/logo.png";
 import { useHistory, Link, } from "react-router-dom"
+import CollapsiblePanel from './collapsiblePanel/CollapsiblePanel'
+import {useState} from 'react'
+import Search from './search/Search'
 
 const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
 
     const history = useHistory()
+
+    const text =
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Nihil earum illo ipsa velit facilis provident qui eligendi, quia ut magnam tenetur. Accusantium nisi quos delectus in necessitatibus ad. Ducimus, id!";
+    const [collapse, setCollapse] = useState(true);
+
+    const [icon, setIcon] = useState("fa fa-chevron-right");   
 
   return (
     <div className={sidebarOpen ? "sidebar_responsive" : ""} id="sidebar" style={{  background: `linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/images/sidebar.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: "center", backgroundSize: 'cover'  }}>
@@ -27,11 +36,16 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
           <Link to="/" exact>Dashboard</Link>
         </div>
         <h2>MNG</h2>
-        <div className="sidebar__link">
+        {/* <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
           <Link to="/posts" exact>Search Paws</Link>
-        </div>
+        </div> */}
 
+        <div className="sidebar__link">
+            <CollapsiblePanel leftIcon="fa fa-search" title="Search Paws" collapse={collapse}>
+               <Search />
+            </CollapsiblePanel>
+        </div>
         {!!user && <h2>Add Your Paws</h2> }
         {!!user && 
             

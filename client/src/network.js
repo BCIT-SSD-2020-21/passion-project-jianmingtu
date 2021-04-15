@@ -25,6 +25,17 @@ export async function getPosts() {
   }
 }
 
+export async function getSearchPosts({search}) {
+  try {
+    // Send the JWT in the header of the axios requests from the client
+    const result = await axios.get(`${BASE_API}/posts${ search ? `?search=${search}` : '' }`, { headers: authHeader() })
+    console.log(result)
+    return result.data
+  } catch (error) {
+    throw (error.response.data.error ? Error(error.response.data.error) : error)
+  }
+}
+
 export async function savePost(data) {
   // try {
   //   //Send the JWT in the header of the axios requests from the client
