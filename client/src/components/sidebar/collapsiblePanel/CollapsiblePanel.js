@@ -30,7 +30,7 @@ function CollapsiblePanel({ children, ...props }) {
   return (
     <div className="coll-panel">
       <div
-        className="coll-panel-btn  btn-block text-left"
+        className="coll-panel-btn"
         onClick={() => toggle()}
         style={{color: 'white'}}
       >
