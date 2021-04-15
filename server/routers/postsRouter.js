@@ -8,7 +8,7 @@ module.exports = function({database, authorize}) {
 
   // GET /api/posts
   router.get('/', async (req, res) => {
-    const posts = await database.getPosts()
+    const posts = await database.getPosts(req)
     res.send({
       posts
     })

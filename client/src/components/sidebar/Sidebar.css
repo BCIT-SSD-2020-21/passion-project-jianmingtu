@@ -76,7 +76,7 @@
   color: #f3f4f6 !important;
 }
 
-.sidebar__link > a {
+.sidebar__link  a {
   text-decoration: none;
   color: #a5aaad;
   font-weight: 700;
