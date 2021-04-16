@@ -66,7 +66,14 @@ module.exports = async function() {
   async function updatePost({ postDetails, user }) {
   const result = await db.collection('posts').updateOne(
     {_id: ObjectId(postDetails._id)},
-    {$set : postDetails}
+    {$set : {
+      "pet_name": postDetails.pet_name, 
+      "address_last_seen" : postDetails.address_last_seen,
+      "gender" : postDetails.gender,
+      "lost" : postDetails.lost,
+      "species" : postDetails.species, 
+      "upload_image_file" : postDetails.upload_image_file, 
+    }}
   )
   return result.ops[0]
 }

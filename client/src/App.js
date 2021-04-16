@@ -55,7 +55,7 @@ const App = () => {
             <Posts></Posts>
             </Route>                                       
             <Route path="/">
-              <Main user={user}></Main>
+              {/* <Main user={user}></Main> */}
             </Route>          
         </Switch>
         <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} user={user} />
