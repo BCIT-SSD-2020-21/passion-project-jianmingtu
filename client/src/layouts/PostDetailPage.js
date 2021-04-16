@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom"
 import PostDetails from '../components/postDetails/index'
-import { getPost } from '../network'
+import { getPost, updatePost } from '../network'
 
 
 export default function PostDetailsPage({user}) {
   const [post, setPost] = useState()
-  const [updatePost, setUpdatePost] = useState(false)
   let { postId } = useParams()
 
   useEffect(() => {
@@ -16,12 +15,20 @@ export default function PostDetailsPage({user}) {
           // Hard code one of your post ids for now, we'll make this dynamic later
           const result = await getPost({postId: postId})
           setPost(result.post)
-          setUpdatePost(false)
         } catch (error) {
           console.log(error)
         }
     })()
   }, [])
+
+  const submitPost = async (data) => {
+        console.log(data)
+        try {
+            await updatePost(data);
+        } catch (error) {
+      
+        }        
+    }
 
   const submitComment = async ({postId, text}) => {
 
@@ -40,6 +47,7 @@ export default function PostDetailsPage({user}) {
       <PostDetails 
       post={post} 
       user = {user}
+      submitPost={submitPost}
       likeClicked={likeClicked} 
       submitComment={submitComment}
       ></PostDetails>

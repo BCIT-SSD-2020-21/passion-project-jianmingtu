@@ -63,6 +63,13 @@ module.exports = async function() {
 }
 
 
+  async function updatePost({ postDetails, user }) {
+  const result = await db.collection('posts').updateOne(
+    {_id: ObjectId(postDetails._id)},
+    {$set : postDetails}
+  )
+  return result.ops[0]
+}
 
   async function createUser({email, username, password}) {
     
@@ -149,6 +156,7 @@ async function createComment({ commentDetails, postId, user }) {
       createUser,
       createComment,
       getPostComments,
-      getPost
+      getPost,
+      updatePost
   }
 }

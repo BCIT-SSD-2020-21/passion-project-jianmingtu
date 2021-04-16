@@ -67,6 +67,25 @@ export async function savePost(data) {
   }  
 }  
 
+
+export async function updatePost(data) {
+  try {
+    console.log(data)
+
+    let ret = null;
+    if(data.upload_image_file) {
+      ret = await upload(data.upload_image_file)
+    }
+    //Send the JWT in the header of the axios requests from the client
+  
+    console.log({ ...data, upload_image_file:ret?.location})
+
+    await axios.put(`${BASE_API}/posts/${data._id}}`, { ...data, upload_image_file:ret?.location },  { headers: authHeader() })
+  } catch (err) {
+    throw (err.message || JSON.stringify(err))
+  }  
+}  
+
 export async function saveComment({postId, text}) {
   try {
     //Send the JWT in the header of the axios requests from the client

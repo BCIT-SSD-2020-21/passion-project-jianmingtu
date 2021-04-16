@@ -133,7 +133,7 @@ export default function NewPost({ submit, close, submitPost }) {
 			
 				<button className="submitButton">
 					<BsForward style={{marginRight: '0.5rem'}} size={30} />
-					<span>Add Photo</span>
+					<span>Add Paw</span>
 				</button>
 			</form>	
 		</div>
