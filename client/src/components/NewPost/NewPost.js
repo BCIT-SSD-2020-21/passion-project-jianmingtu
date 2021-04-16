@@ -1,22 +1,10 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from '@material-ui/core/Button';
-import CloseIcon from '@material-ui/icons/Close';
-import { IconButton } from '@material-ui/core'
-import Post  from './Post'
 import './NewPost.css'
 import { BsForward, BsCameraVideo } from 'react-icons/bs';
 import {IOSSwitch} from '../utils/ToggleSwitch'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import {
-  Card,
-  Tabs,
-  Tab,
-  CardContent,
-  CardHeader,
-  Typography
-} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -42,13 +30,6 @@ export default function NewPost({ submit, close, submitPost }) {
   
 
   const imageHandler = (e) => {
-    // const reader = new FileReader();
-    // reader.onload = () =>{
-    //   if(reader.readyState === 2){
-    //     setProfileImag(reader.result)
-    //   }
-    // }
-    // reader.readAsDataURL(e.target.files[0])
 
     const file = e.target.files[0]
 	setFile(file)

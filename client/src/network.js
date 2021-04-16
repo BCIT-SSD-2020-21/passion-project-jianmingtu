@@ -79,7 +79,7 @@ export async function saveComment({postId, text}) {
 export async function getPost({postId}) {
   try {
     // Send the JWT in the header of the axios requests from the client
-    const result = await axios.get(`/api/posts/${postId}`, { headers: authHeader() })
+    const result = await axios.get(`${BASE_API}/posts/${postId}`, { headers: authHeader() })
     return result.data
   } catch (error) {
     throw (error.response.data.error ? Error(error.response.data.error) : error)

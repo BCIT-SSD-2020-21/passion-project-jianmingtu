@@ -86,3 +86,10 @@ database -MongoDB
 
 https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/
 -- 5 ways of http requests and I choose the most popular axios
+
+## debug on the express
+  run code . the server folder
+  click on the `run and debug`
+  select Node from the list
+  go to the breakpoint and will get the debug interrupt
+

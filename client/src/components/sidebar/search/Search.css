@@ -5,10 +5,10 @@
   align-items: center;
   border-radius: 0.5rem;
   background-color:transparent;  
-  margin: 0 10px;
+  width: 95%;
   padding: 0px;
   border: 1px solid #FFFFFF66;
-  width: 100%;
+  transform: translateX(20px);
 }
 
 .search-form { 

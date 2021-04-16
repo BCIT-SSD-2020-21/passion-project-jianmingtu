@@ -15,7 +15,7 @@ module.exports = function({database, authorize}) {
   })
   
   // GET /api/posts/id
-  router.get('/:id', authorize, async (req, res) => {
+  router.get('/:id', async (req, res) => {
       try {
         const postId = req.params.id
         const post = await database.getPost({postId})

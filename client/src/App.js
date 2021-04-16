@@ -10,6 +10,7 @@ import LoginPage from "./layouts/LoginPage";
 import SignOutPage from "./layouts/SignOutPage"
 import NewPostPage from "./layouts/NewPostPage"
 import Posts from "./layouts/PostsPage"
+import PostDetailPage from './layouts/PostDetailPage'
 
 
 import * as token from './token'
@@ -47,6 +48,9 @@ const App = () => {
             <Route path="/newPost">
             <NewPostPage></NewPostPage>
             </Route>  
+            <Route path="/post/:postId">
+              <PostDetailPage user={user} />
+            </Route>            
             <Route path="/posts">
             <Posts></Posts>
             </Route>                                       
