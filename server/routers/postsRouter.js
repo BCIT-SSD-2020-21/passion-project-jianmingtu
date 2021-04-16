@@ -15,7 +15,7 @@ module.exports = function({database, authorize}) {
   })
   
   // GET /api/posts/id
-  router.get('/:id', authorize, async (req, res) => {
+  router.get('/:id', async (req, res) => {
       try {
         const postId = req.params.id
         const post = await database.getPost({postId})
@@ -25,12 +25,21 @@ module.exports = function({database, authorize}) {
           res.send({error: error.message})
       }
   })
+
   
   // POST /api/posts
   router.post('/', authorize, async (req, res) => {
     const postDetails = req.body
     const user = req.user
     const post = await database.createPost({postDetails, user})
+    res.send({post})
+  })
+
+  // PUT /api/posts
+  router.put('/:id', authorize, async (req, res) => {
+    const postDetails = req.body
+    const user = req.user
+    const post = await database.updatePost({postDetails, user})
     res.send({post})
   })
   

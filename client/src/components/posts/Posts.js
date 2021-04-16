@@ -1,8 +1,9 @@
 import "./Posts.css";
-import hello from "../../assets/hello.svg";
-import Chart from "../charts/Chart";
+import { useHistory } from 'react-router-dom'
 
 const Posts = ({posts, cardClicked}) => {
+
+   const history = useHistory()
 
   const Badge = (lost) => {
     if (lost) 
@@ -23,6 +24,7 @@ const Posts = ({posts, cardClicked}) => {
                 <div className="card card-small card-post card-post--1">
                   <div className="card-post__image" style={{backgroundImage: `url(${post.upload_image_file})`}}>
                     <a href="#" className={`card-post__category badge badge-pill ${Badge(post.lost)} `}>{post.lost?'LOST':'FOUND'}</a>
+                    <a href="#" className={`card-post__more badge badge-pill badge-primary `}  onClick={()=>history.push(`/post/${post._id}`)} >More</a>
                     <div className="card-post__author d-flex">
                       <a href="#" className="card-post__author-avatar card-post__author-avatar--small" style={{backgroundImage: `url('images/avatars/avatar.png')`}} >Written by {post.username}</a>
                     </div>

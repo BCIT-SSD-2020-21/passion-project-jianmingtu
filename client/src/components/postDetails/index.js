@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import './NewPost.css'
 import { BsForward, BsCameraVideo } from 'react-icons/bs';
@@ -17,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewPost({ submit, close, submitPost }) {
-  const classes = useStyles();
-  const [tabValue, setTabValue] = useState(0);
+
+export default function PostDetails({user, className, post, submitPost, submitComment, likeClicked}) {
+
   const [profileImg, setProfileImag] = useState('images/pet_dog_brown_missing.png')
   const [lost, setLost]=useState(true)
    const [file, setFile]=useState('')
@@ -27,8 +28,28 @@ export default function NewPost({ submit, close, submitPost }) {
 	const [lostPlace, setLostPlace] = useState('')
 	const [gender, setGender] = useState('')
 	const [species, setSpecies] = useState('')  
-  
 
+	const [disabled, setDisabled] = useState(false)
+	const [readonly, setReadonly] = useState(false) 
+	
+	const speciesList = ["Dog", "Cat", "Bird", "Horse", "Rabbit", "Reptile", "Ferret", "Other" ]
+	const genderList = ["Male", "Female", "Unknown" ]
+
+	useEffect(() => {
+		
+		if(post) {
+			setProfileImag(post.upload_image_file)
+			setFile(post.upload_image_file)
+			setLost(post.lost)
+			setPetName(post.pet_name)
+			setLostPlace(post.address_last_seen)
+			setGender(post.gender)
+			setSpecies(post.species)	
+		}
+		return () => {
+			
+		}
+	}, [post])
   const imageHandler = (e) => {
 
     const file = e.target.files[0]
@@ -51,7 +72,8 @@ export default function NewPost({ submit, close, submitPost }) {
 			  //TODO
 			  console.log("date_last_seen-------------------",species)		
 
-			  submitPost({lost:lost, 
+			  submitPost({...post,
+				lost:lost, 
 				upload_image_file: file, 
 				pet_name:petName, 
 				address_last_seen:lostPlace, 
@@ -63,9 +85,9 @@ export default function NewPost({ submit, close, submitPost }) {
 			<form  onSubmit={handleSubmit}>		
 				<div className="imageContainer">
 					<div className="titlebar">
-						<img src="images/nails_left.svg" className="pull-left" />
+						<img src="../../images/nails_left.svg" className="pull-left" />
 						<h3 className="heading">Missing</h3>
-						<img src="images/nails_right.svg" className="pull-left" />
+						<img src="../../images/nails_right.svg" className="pull-left" />
 					</div>			
 					<div className="poster-photo-placeholder fido-light-blue-bg">
 						<div className="img-holder">
@@ -75,7 +97,7 @@ export default function NewPost({ submit, close, submitPost }) {
 						<div className="label">
 							<label className="image-upload" htmlFor="input">
 								<BsCameraVideo style={{marginRight: '0.5rem'}} size={30} />
-								<span>Add Photo</span>
+								<span>Update Photo</span>
 							</label>
 						</div>
 					</div>
@@ -104,36 +126,33 @@ export default function NewPost({ submit, close, submitPost }) {
 						<input type="text" id="dashboardpet-pet_name" className="form-control" name="lost_place" placeholder="e.g. V8N 4M9" aria-required="true" value={lostPlace} onChange={(e)=>setLostPlace(e.target.value)}></input>		
 					</div>				
 
-
 					<div>
 						<label className="control-label" >SPECIES</label>
 						<select id="cropperform-species" className="form-control" name="species" aria-required="true"  onChange={(e)=>setSpecies(e.target.value)}>
-						<option value="">Choose Species...</option>
-						<option value="Dog">Dog</option>
-						<option value="Cat">Cat</option>
-						<option value="Bird">Bird</option>
-						<option value="Horse">Horse</option>
-						<option value="Rabbit">Rabbit</option>
-						<option value="Reptile">Reptile</option>
-						<option value="Ferret">Ferret</option>
-						<option value="Other">Other</option>
+						{speciesList.map(species => 
+							(
+								<option value={species} selected = {species==post.species?true:false} >{species}</option>
+							)					
+						)}
 						</select>			
-					</div>
+					</div>	
 
 					<div>
 						<label className="control-label" >SEX</label>
-						<select id="cropperform-gender" className="form-control" name="CropperForm[gender]" aria-required="true" onChange={(e)=>setGender(e.target.value)}>
-						<option value="">Choose Sex...</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-						<option value="Unknown">Unknown</option>
-						</select>		
+						<select id="cropperform-gender" className="form-control" name="gender" aria-required="true" onChange={(e)=>setGender(e.target.value)}>
+
+						{genderList.map(gender => 
+							(
+								<option value={gender} selected = {gender==post.gender?true:false} >{gender}</option>
+							)					
+						)}
+						</select>	
 					</div>				
 				</div>	
 			
-				<button className="submitButton">
+				<button className="submitButton" disabled = {user.username ==post.user.username?false:true}>
 					<BsForward style={{marginRight: '0.5rem'}} size={30} />
-					<span>Add Paw</span>
+					<span>Update Paw</span>
 				</button>
 			</form>	
 		</div>
