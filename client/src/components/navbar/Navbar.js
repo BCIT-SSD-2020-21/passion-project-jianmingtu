@@ -15,7 +15,7 @@ const Navbar = ({ sidebarOpen, openSidebar, user }) => {
       </div>
       <div className="navbar__right">
         <a href="#">
-          <i className="fa fa-search" aria-hidden="true"></i>
+          <span>{user && user.username}</span>
         </a>
         <a href="#">
           <i className="fa fa-clock-o" aria-hidden="true"></i>
