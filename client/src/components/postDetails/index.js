@@ -150,7 +150,7 @@ export default function PostDetails({user, className, post, submitPost, submitCo
 					</div>				
 				</div>	
 			
-				<button className="submitButton" disabled = {user.username ==post.user.username?false:true}>
+				<button className="submitButton" disabled = { !user || user.username != post.user.username}>
 					<BsForward style={{marginRight: '0.5rem'}} size={30} />
 					<span>Update Paw</span>
 				</button>

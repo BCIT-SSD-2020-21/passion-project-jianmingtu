@@ -35,7 +35,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
           <i className="fa fa-home"></i>
           <Link to="/" exact>Dashboard</Link>
         </div>
-        <h2>MNG</h2>
+        <h2>Lost and Found</h2>
         {/* <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
           <Link to="/posts" exact>Search Paws</Link>
