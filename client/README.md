@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Client Side Install, Debug and Deployment
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Debug
+    NPM start -> Copy URL
+    CTRL+SHIFT+D -> Select Debug URL -> Paste the copied URL -> it will run to debugging breakpoints

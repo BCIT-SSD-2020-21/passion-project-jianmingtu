@@ -26,7 +26,7 @@ const Posts = ({posts, cardClicked}) => {
                     <a href="#" className={`card-post__category badge badge-pill ${Badge(post.lost)} `}>{post.lost?'LOST':'FOUND'}</a>
                     <a href="#" className={`card-post__more badge badge-pill badge-primary `}  onClick={()=>history.push(`/post/${post._id}`)} >More</a>
                     <div className="card-post__author d-flex">
-                      <a href="#" className="card-post__author-avatar card-post__author-avatar--small" style={{backgroundImage: `url('images/avatars/avatar.png')`}} >Written by {post.username}</a>
+                      <a href="#" className="card-post__author-avatar card-post__author-avatar--small" style={{backgroundImage: `url(${post.user.avatar?post.user.avatar: ""})`}} >Written by {post.username}</a>
                     </div>
                   </div>
                   <div className="card-body" style={{paddingBottom: 0}}>

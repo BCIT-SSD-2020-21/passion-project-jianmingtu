@@ -9,8 +9,8 @@ import { upload } from './s3'
 // export async function getPost({postId}) 
 // export async function savePost({type, imageUrl, description})
 
-// const BASE_API = "https://fathomless-lake-61399.herokuapp.com/api"
-const BASE_API = "http://localhost:5000/api"
+const BASE_API = "https://fathomless-lake-61399.herokuapp.com/api"
+// const BASE_API = "http://localhost:5000/api"
 
 // Create an object to send it as a bearer token
 const authHeader = () => { return { Authorization: `Bearer ${localStorage.getItem('token')}` }}

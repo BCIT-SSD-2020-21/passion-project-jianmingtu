@@ -9,8 +9,6 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
 
     const history = useHistory()
 
-    const text =
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Nihil earum illo ipsa velit facilis provident qui eligendi, quia ut magnam tenetur. Accusantium nisi quos delectus in necessitatibus ad. Ducimus, id!";
     const [collapse, setCollapse] = useState(true);
 
     const [icon, setIcon] = useState("fa fa-chevron-right");   
@@ -20,7 +18,6 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={logo} alt="logo" />
-          <h1>Codersbite</h1>
         </div>
         <i
           onClick={() => closeSidebar()}
@@ -35,7 +32,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar, user, setUserFunc }) => {
           <i className="fa fa-home"></i>
           <Link to="/" exact>Dashboard</Link>
         </div>
-        <h2>MNG</h2>
+        <h2>Lost and Found</h2>
         {/* <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
           <Link to="/posts" exact>Search Paws</Link>

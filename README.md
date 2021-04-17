@@ -1,59 +1,30 @@
-# A Passion Project 
-by Jianming Tu
+# Paws Lost and Found 
+by Jianming Tu https://eloquent-archimedes-c44224.netlify.app 
 
+## Description
+This is a web app for finding the lost pets or the owner who lost pets. The app provides the user authentication and authorization for creating a post of lost or find; provides a searching engine for easily narrowing down the need.
 
-## Overview
-The goal of the Passion Project module is to provide each student with an opportunity to individually explore and expand their abilities within a hands-on project-based setting.
+## Tech Stack
+    use react, express and mongodb, deploying on netlify(front end app), Heroku(Node express) and mongoDB altas and save the images on AWS s3 bucket, using React, Bootstrap, Material-ui, font-awesome
 
-The student will perform all roles including:
-* Product Owner
-* Product Designer/Planner
-* Project Manager
-* Designer
-* Dev Ops
-* Developer
+## Deployed on Netlify 
+    https://eloquent-archimedes-c44224.netlify.app/
 
-Students are encouraged to work independantly (or in small groups of 2 or 3 if there is a shared passion). 
+## Deployed on Heroku
+    https://fathomless-lake-61399.herokuapp.com/api
 
-Students are able to use the tech stack of their choice. 
-
-## Outcomes
-Leading up to this point in our program you were asked to plan, design, and start to develop a product of your choosing. Given your increased experience with web and mobile technologies, you will be provided with class time to perform the tasks necessary to result in the following:
-
-* A deployed main branch of any web based project assets.
-* A clearly defined document with installation instructions as well as links and descriptions for all project assets.
-* A project board that shows all of your build activitites (GitHub Project, Trello, etc.)
-* A 5 minute presentation of the primary use cases for your application.
-
-## Process
-* Review your original product plan and design.
-* Make changes to your plan/design where necessary to ensure that you can have a completed product for the Passion project demo day.
-* Set specific milestones for your project, this will help to ensure that primary use cases are built in priority sequence and functional to a required minimum. (Not all milestones need to be completed...)
-* All commits are to be done on a branch other than main and connected to a GitHub "issue". If working alone you can review and merge your own pull requests.
-
-## Essential Features
-These are really based on the design of your application and up to you...The only requirements are that each application has:
-* some form persistant data that requires a database
-* an implementation of a user interface that appropriately ties the app to the persisted data.
-
-All other features should be included on an as needed basis for your application.
-
-## Due Date and Grading
-Presentations will take place 1pm-4pm PST April 16th, 2021.
-
-The due date for graded code to be on GitHub is 11:59pm April 18th, 2021.
-
-The passion project accounts for 20% of your SSDP5001 mark. 
-
-**SSDP5001 Weighting**
-* Career Success Series (13.33%)
-* Passion Project (20%)
-* Industry Project (66.67%)
-
-
-## App Layer
+## App Layers
 client - React (Netlify)
-
 server - Express (Heroku)
-
 database -MongoDB
+
+## Server Installation
+https://github.com/BCIT-SSD-2020-21/passion-project-jianmingtu/tree/main/client
+
+## Server Installattion
+https://github.com/BCIT-SSD-2020-21/passion-project-jianmingtu/tree/main/server
+
+## User Experience
+![](https://i.imgur.com/sW2ter8.png)
+![](https://i.imgur.com/88agZx5.png)
+
