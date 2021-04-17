@@ -8,9 +8,11 @@ const Navbar = ({ sidebarOpen, openSidebar, user }) => {
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div>
       <div className="navbar__left">
-        <a href="#">Subscribers</a>
+        <a href="#">Admin</a>
+         <a href="#">PawsBlog</a>
+          <a href="#">PawsStore</a>
         <a className="active_link" href="#">
-          Admin
+          Lost & Found
         </a>
       </div>
       <div className="navbar__right">
@@ -21,7 +23,7 @@ const Navbar = ({ sidebarOpen, openSidebar, user }) => {
           <i className="fa fa-clock-o" aria-hidden="true"></i>
         </a>
         <a href="#!">
-          <img width="30" src={avatar} alt="avatar" />
+          <img width="30" src={(user && user.avatar)?user.avatar:avatar} alt="avatar" />
         </a>
       </div>
     </nav>
